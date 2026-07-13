@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d2033">
+  <title>Priscilla Sun - Portfolio</title>
+  <style>
+    :root {
+      --ocean: url('https://images.unsplash.com/photo-1629458708127-2e0eb2a31973?auto=format&fit=crop&fm=jpg&q=85&w=3000');
+      --ink: #10121c;
+      --cream: #f1f3fb;
+      --cream-glass: rgba(241, 243, 251, .88);
+      --muted: #5e6173;
+      --line: rgba(28, 33, 57, .20);
+      --wine: #5e5fc7;
+      --lime: #a6afff;
+      --night: #0b1020;
+      --night-muted: #cbd0e6;
+      --serif: Iowan Old Style, Baskerville, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; padding-top: 76px; color: var(--ink); font-family: var(--sans); background: var(--ocean) center / cover fixed; }
+    img { display: block; width: 100%; }
+    a { color: inherit; }
+    button { font: inherit; }
+    ::selection { color: var(--ink); background: var(--lime); }
+
+    .inline-hello { position: relative; display: inline-block; margin-left: .14em; font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif; font-size: .36em; line-height: 1; vertical-align: .2em; transform-origin: 72% 76%; filter: drop-shadow(0 4px 8px rgba(5,10,28,.28)); animation: hello-wave .48s ease-in-out .35s 3 alternate; }
+    .inline-hello::before, .inline-hello::after { content: "✦"; position: absolute; top: 46%; color: #c8c9ff; font-size: .48em; text-shadow: 0 0 8px #8d91ff; opacity: .18; animation: purple-twinkle .72s ease-in-out .2s 4 alternate; }
+    .inline-hello::before { right: 108%; }
+    .inline-hello::after { left: 108%; animation-delay: .38s; }
+    @keyframes hello-wave { from { transform: rotate(-10deg); } to { transform: rotate(17deg); } }
+    @keyframes purple-twinkle { from { opacity: .15; transform: scale(.55) rotate(0); } to { opacity: 1; transform: scale(1.35) rotate(28deg); } }
+
+    .wrap { width: min(1320px, calc(100% - 48px)); margin: 0 auto; }
+    .kicker, .section-id, .project-index, .project-type, .role, .period, .carousel-count, .footer-note { font-size: 11px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+
+    .nav-shell { position: fixed; inset: 0 0 auto; z-index: 40; padding: 0; color: #fff; background: rgba(8, 20, 35, .92); border-bottom: 1px solid rgba(205, 213, 255, .22); box-shadow: 0 12px 34px rgba(3, 7, 20, .16); backdrop-filter: blur(20px); }
+    .nav { min-height: 76px; padding: 0; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .wordmark { font-family: var(--serif); font-size: 29px; font-weight: 400; letter-spacing: -.045em; text-decoration: none; white-space: nowrap; }
+    .nav-links { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 38px); font-size: 15px; font-weight: 680; }
+    .nav-links a, .copy-email { border: 0; padding: 0; color: inherit; background: transparent; font: inherit; text-decoration: none; cursor: pointer; }
+    .nav-links a:hover, .copy-email:hover, .copy-email[data-copied="true"] { color: #bdc5ff; }
+
+    .hero { min-height: min(620px, calc(100vh - 76px)); display: grid; align-items: center; padding: 46px 0; background: var(--ocean) center / cover fixed; }
+    .hero-copy { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, .72fr); gap: clamp(30px, 5vw, 72px); align-items: stretch; }
+    .hero-text { padding: 0; color: #fff; text-shadow: 0 2px 18px rgba(5, 10, 28, .72); }
+    .hero-photo { align-self: stretch; min-height: 0; margin: 0; overflow: hidden; border: 1px solid rgba(94,95,199,.28); box-shadow: 0 22px 60px rgba(31,29,71,.18); }
+    .hero-photo img { height: 100%; object-fit: cover; object-position: 22% center; }
+    h1 { margin: 0; font-family: var(--serif); font-size: clamp(60px, 8.7vw, 132px); font-weight: 400; line-height: .86; letter-spacing: -.078em; }
+    h1 em { color: #c8c9ff; }
+    .hero-intro { max-width: 620px; margin: 30px 0 0; font-size: clamp(17px, 1.7vw, 22px); line-height: 1.46; letter-spacing: -.026em; }
+    .hero-intro strong { color: #d4d5ff; }
+
+    section { margin: 18px 0; border: 0; background: transparent; }
+    .section-light, .section-night { padding: 14px 0; }
+    .section-light > .wrap, .section-night > .wrap { width: min(1320px, calc(100% - 112px)); display: grid; grid-template-columns: minmax(165px, .72fr) minmax(0, 1.28fr); column-gap: 36px; }
+    .section-light > .wrap { padding: 0 clamp(22px, 4vw, 58px) 44px; color: var(--ink); border: 1px solid rgba(36, 45, 83, .14); background: var(--cream-glass); box-shadow: 0 20px 50px rgba(5, 15, 38, .12); backdrop-filter: blur(10px); }
+    .section-night { color: #fff; --line: rgba(215, 221, 255, .24); --muted: var(--night-muted); --wine: #c3c9ff; }
+    .section-night > .wrap { padding: 0 clamp(22px, 4vw, 58px) 44px; background: linear-gradient(rgba(10, 15, 35, .76), rgba(9, 11, 27, .92)), var(--ocean) center / cover fixed; box-shadow: 0 20px 50px rgba(5, 15, 38, .24); }
+    .section-top { display: contents; }
+    .section-top > div { padding: 36px 0 42px; }
+    .section-id { position: static; align-self: start; padding-top: 39px; color: var(--wine); font-size: clamp(25px, 3.05vw, 43px); font-weight: 780; line-height: .88; letter-spacing: -.065em; text-transform: uppercase; }
+    .section-top h2 { max-width: 760px; margin: 0; font-family: var(--serif); font-size: clamp(46px, 5.5vw, 84px); font-weight: 400; line-height: .88; letter-spacing: -.07em; }
+    .section-top p { max-width: 610px; margin: 17px 0 0; font-size: 16px; line-height: 1.52; }
+
+    .profile { grid-column: 1 / -1; padding-bottom: 76px; }
+    .profile-layout { display: grid; grid-template-columns: .84fr 1.16fr; gap: 42px; align-items: center; }
+    .profile-copy { padding: 30px 0; }
+    .profile-copy h3 { margin: 0; font-family: var(--serif); font-size: clamp(42px, 4.8vw, 70px); font-weight: 400; letter-spacing: -.065em; line-height: .88; }
+    .profile-copy p { max-width: 440px; margin: 22px 0 0; font-size: 17px; line-height: 1.5; }
+    .profile-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: 30px; background: var(--line); border: 1px solid var(--line); }
+    .metric { min-height: 108px; padding: 16px; background: var(--cream); }
+    .metric b { display: block; color: var(--wine); font-family: var(--serif); font-size: 32px; font-weight: 400; letter-spacing: -.05em; line-height: 1; }
+    .metric span { display: block; margin-top: 8px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+    .profile-image { min-height: 490px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #fff; border: 1px solid var(--line); }
+    .profile-image img { max-height: 560px; object-fit: contain; object-position: center top; }
+
+    .memory { grid-column: 1 / -1; padding: 26px 0 66px; }
+    .memory-row { display: grid; grid-template-columns: .8fr 1.2fr; gap: 42px; align-items: center; padding-top: 24px; border-top: 1px solid var(--line); }
+    .memory h3, .project-card h3, .life-card h3 { margin: 0; font-family: var(--serif); font-size: clamp(42px, 4.6vw, 68px); font-weight: 400; line-height: .9; letter-spacing: -.065em; }
+    .memory p { margin: 18px 0 0; max-width: 420px; font-size: 16px; line-height: 1.5; }
+    .memory-visual { overflow: hidden; padding: 10px; background: #e5e1f2; border: 1px solid var(--line); box-shadow: 0 18px 42px rgba(5,15,38,.16); }
+    .memory-visual img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top center; }
+
+    .works { grid-column: 1 / -1; padding-bottom: 76px; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .project-card { min-height: 780px; display: flex; flex-direction: column; padding: 26px; background: rgba(241,243,251,.97); }
+    .project-head { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; }
+    .project-index { color: var(--wine); }
+    .project-type { color: var(--muted); text-align: right; }
+    .project-card h3 { margin-top: 28px; }
+    .slash { color: var(--wine); }
+    .project-copy { max-width: 555px; margin: 17px 0 18px; font-size: 15px; line-height: 1.52; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .project-tags span { padding: 6px 8px; border: 1px solid var(--line); color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+
+    .carousel { margin-top: auto; padding-top: 28px; }
+    .carousel-viewport { position: relative; overflow: hidden; aspect-ratio: 16 / 10; padding: 10px; background: #e5e1f2; }
+    .carousel-track { display: flex; height: 100%; transition: transform .42s cubic-bezier(.22,.61,.36,1); }
+    .carousel-slide { position: relative; flex: 0 0 100%; height: 100%; margin: 0; }
+    .carousel-slide img { height: 100%; object-fit: contain; object-position: center; }
+    .carousel-slide figcaption { position: absolute; right: 10px; bottom: 10px; padding: 5px 7px; background: rgba(17,20,25,.76); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .looki-carousel .carousel-viewport { background: #e5e1f2; }
+    .carousel-controls { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+    .carousel-controls button { width: 38px; height: 34px; border: 1px solid var(--line); color: var(--ink); background: transparent; cursor: pointer; font-size: 18px; line-height: 1; }
+    .carousel-controls button:hover { color: var(--wine); border-color: var(--wine); }
+    .carousel-count { margin-left: 4px; color: var(--muted); }
+
+    .experience-map { grid-column: 1 / -1; position: relative; min-height: 650px; overflow: hidden; border: 1px solid rgba(205, 213, 255, .28); background-color: rgba(5, 9, 24, .38); background-image: radial-gradient(circle at 18% 22%, rgba(206,215,255,.9) 0 1px, transparent 1.8px), radial-gradient(circle at 72% 14%, rgba(166,175,255,.9) 0 1.5px, transparent 2px), radial-gradient(circle at 88% 68%, rgba(226,230,255,.85) 0 1px, transparent 1.7px), radial-gradient(circle at 38% 74%, rgba(181,190,255,.85) 0 1.2px, transparent 1.8px), radial-gradient(circle at 56% 43%, rgba(255,255,255,.75) 0 1px, transparent 1.6px); background-size: 174px 188px, 251px 209px, 213px 231px, 281px 191px, 197px 257px; }
+    .star-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .star-lines path { fill: none; stroke: rgba(175, 184, 255, .47); stroke-width: 1.25; stroke-dasharray: 5 8; }
+    .star-node { position: absolute; width: min(39%, 440px); padding: 18px 18px 16px; border: 1px solid rgba(198, 207, 255, .38); background: rgba(14, 18, 43, .64); box-shadow: 0 14px 34px rgba(0,0,0,.18); backdrop-filter: blur(10px); }
+    .star-node::before { content: ""; position: absolute; top: -6px; left: -6px; width: 11px; height: 11px; border-radius: 50%; background: #c3c9ff; box-shadow: 0 0 0 5px rgba(195,201,255,.13), 0 0 22px #aab5ff; }
+    .star-node h3 { margin: 0; font-family: var(--serif); font-size: 29px; font-weight: 400; letter-spacing: -.045em; line-height: .95; }
+    .star-node .period { display: block; margin-top: 9px; color: #c3c9ff; }
+    .star-node .role { margin: 9px 0 0; color: #d9dcef; font-size: 11px; }
+    .star-node .desc { margin: 10px 0 0; color: var(--night-muted); font-size: 13px; line-height: 1.45; }
+    .genesis { top: 9%; left: 7%; }
+    .jinding { top: 25%; right: 7%; }
+    .bcg { right: 7%; bottom: 8%; left: auto; }
+    .shenwan { top: 54%; left: 7%; }
+    .education { grid-column: 1 / -1; margin-top: 28px; padding: 22px; display: grid; grid-template-columns: .7fr 1.55fr auto; gap: 20px; align-items: baseline; background: rgba(166, 175, 255, .92); color: var(--ink); }
+    .education .kicker { color: var(--night); }
+    .education b { font-size: 19px; letter-spacing: -.03em; }
+    .education span { font-size: 13px; }
+
+    .life-grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .life-card { min-height: 720px; display: grid; grid-template-rows: auto auto 1fr; align-content: start; padding: 26px; background: rgba(8,20,35,.52); }
+    .life-card h3 { color: #fff; }
+    .life-card p { max-width: 600px; margin: 17px 0 0; color: var(--night-muted); font-size: 15px; line-height: 1.5; }
+    .band-stack, .lol-stack { margin-top: 14px; padding-top: 0; align-self: end; }
+    .band-stack { display: grid; gap: 10px; }
+    .band-stack img { height: 137px; object-fit: cover; object-position: center; }
+    .lol-stack { display: grid; grid-template-columns: .78fr 1.22fr; gap: 10px; align-items: stretch; }
+    .lol-stack img { height: 431px; object-fit: cover; }
+    .lol-stack img:first-child { object-position: center; }
+    .lol-stack img:last-child { object-position: center; }
+
+    .footer { color: #fff; border-top: 1px solid rgba(255,255,255,.30); background: linear-gradient(rgba(8,20,35,.86), rgba(8,20,35,.96)), var(--ocean) center / cover fixed; }
+    .footer-main { display: flex; align-items: end; justify-content: space-between; gap: 30px; padding: 50px 0 32px; }
+    .footer h2 { max-width: 680px; margin: 0; font-family: var(--serif); font-size: clamp(48px, 6.2vw, 90px); font-weight: 400; line-height: .86; letter-spacing: -.075em; }
+    .footer h2 em { color: #b7c1ff; }
+    .footer-action { flex: none; padding: 13px 16px; border: 1px solid rgba(255,255,255,.55); background: transparent; color: #fff; cursor: pointer; font-size: 12px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+    .footer-action:hover, .footer-action[data-copied="true"] { color: var(--ink); border-color: #b7c1ff; background: #b7c1ff; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0 24px; border-top: 1px solid rgba(255,255,255,.25); color: #bdc5ca; }
+
+    @media (max-width: 840px) {
+      body { padding-top: 64px; }
+      .wrap { width: min(100% - 28px, 680px); }
+      .nav { min-height: 64px; gap: 16px; }
+      .wordmark { font-size: 22px; }
+      .nav-links { min-width: 0; gap: 15px; overflow-x: auto; font-size: 13px; scrollbar-width: none; }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links a, .copy-email { flex: none; }
+      .hero { min-height: 0; padding: 34px 0 42px; background: var(--ocean) center / cover fixed; }
+      .hero-copy { grid-template-columns: 1fr; gap: 26px; }
+      .hero-photo { min-height: 430px; }
+      .section-light, .section-night { padding: 8px 0; }
+      .section-light > .wrap, .section-night > .wrap { width: min(100% - 28px, 680px); display: block; padding: 0 18px 30px; }
+      .section-top { display: block; }
+      .section-top > div { padding: 14px 0 30px; }
+      .section-id { position: static; display: block; padding: 28px 0 0; font-size: 30px; }
+      .profile-layout, .memory-row { grid-template-columns: 1fr; gap: 18px; }
+      .profile-image { min-height: 350px; }
+      .profile-image img { max-height: 420px; }
+      .projects-grid, .life-grid { grid-template-columns: 1fr; }
+      .project-card, .life-card { min-height: auto; }
+      .carousel-viewport { aspect-ratio: 4 / 3; }
+      .experience-map { min-height: auto; display: grid; gap: 14px; padding: 25px 14px; }
+      .star-lines { display: none; }
+      .star-node { position: relative; inset: auto; width: 100%; }
+      .education { grid-template-columns: 1fr; gap: 8px; }
+      .band-stack img { height: 190px; }
+      .lol-stack { grid-template-columns: 1fr; }
+      .lol-stack img { height: 270px; }
+      .footer-main { display: block; }
+      .footer-action { margin-top: 28px; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .inline-hello { animation: none; }
+      .inline-hello::before, .inline-hello::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav-shell">
+    <nav class="wrap nav" aria-label="Primary navigation">
+      <a class="wordmark" href="#top">Priscilla Sun</a>
+      <div class="nav-links">
+        <a href="#works">Codex Works</a>
+        <a href="#experience">Experience</a>
+        <a href="#life">Life</a>
+        <button class="copy-email" data-copy-email type="button">Contact</button>
+        <a href="assets/Priscilla_Sun_Resume_2026.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-copy">
+        <div class="hero-text">
+          <h1>Hi! Glad<br>you’re <em>here.</em><span class="inline-hello" role="img" aria-label="Waving hello">👋</span></h1>
+          <p class="hero-intro">I’m <strong>Priscilla Sun</strong>, a curious sophomore at Shanghai Jiao Tong University. I explore how AI becomes a product, a workflow, and eventually a new way to think. I’m looking for paths in <strong>AI product</strong> and <strong>early-stage investing</strong>.</p>
+        </div>
+        <figure class="hero-photo"><img src="assets/design-source/priscilla-bund-web.jpg" alt="Priscilla Sun by the Huangpu River in Shanghai"></figure>
+      </div>
+    </section>
+
+    <section id="works" class="section-light">
+      <div class="wrap">
+        <div class="section-top">
+          <span class="section-id">Codex<br>Works</span>
+          <div>
+            <h2>Make the work<br>visible.</h2>
+            <p>I use Codex as a working environment rather than a question-answering tool: I turn messy inputs into repeatable skills, inspect outputs, pressure-test reasoning, and keep the human decision point explicit.</p>
+          </div>
+        </div>
+
+        <article class="profile">
+          <div class="profile-layout">
+            <div class="profile-copy">
+              <h3>Codex is my<br>workbench.</h3>
+              <p>The point of a profile is not a vanity metric. It shows a sustained practice: convert recurring tasks into skills, keep context in artifacts, and validate the final output instead of stopping at a plausible answer.</p>
+              <div class="profile-metrics" aria-label="Codex profile metrics">
+                <div class="metric"><b>376.8m</b><span>Lifetime tokens</span></div>
+                <div class="metric"><b>34</b><span>Skills explored</span></div>
+                <div class="metric"><b>192</b><span>Skill runs</span></div>
+                <div class="metric"><b>162</b><span>Total tasks</span></div>
+              </div>
+            </div>
+            <div class="profile-image"><img src="assets/design-source/codex-profile.png" alt="Priscilla Sun's Codex profile showing activity and skill use"></div>
+          </div>
+        </article>
+
+        <article class="memory">
+          <div class="memory-row">
+            <div>
+              <span class="kicker">Product demo / in development</span>
+              <h3>Memory Palace</h3>
+              <p>A working program for turning scattered memories, conversations and artifacts into a navigable personal context layer. It organizes thoughts spatially so they can be revisited, connected and used when a new question appears.</p>
+            </div>
+            <div class="memory-visual">
+              <img src="assets/design-source/memory-palace-demo-web.jpg" alt="Memory Palace program interface showing a navigable palace of connected thoughts">
+            </div>
+          </div>
+        </article>
+
+        <div class="works">
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-head"><span class="project-index">Reusable workflow</span><span class="project-type">Codex skill / slides</span></div>
+              <h3><span class="slash">/</span> SJTU<br>paper2slides</h3>
+              <p class="project-copy">A Codex <strong>skill</strong> that turns papers and reports into an evidence-led SJTU Beamer deck. It establishes narrative order, maps source material to slide roles, preserves key proof, and produces an artifact that can be iterated like a product.</p>
+              <div class="project-tags"><span>Skill design</span><span>Paper2slides</span><span>LaTeX</span><span>Storytelling</span></div>
+              <div class="carousel" data-carousel aria-label="SJTU paper2slides samples">
+                <div class="carousel-viewport"><div class="carousel-track">
+                  <figure class="carousel-slide"><img src="assets/design-source/paper2slides-01-web.jpg" alt="SJTU themed title slide"><figcaption>01 / 07</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/paper2slides-02.png" alt="Research question slide"><figcaption>02 / 07</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/paper2slides-03.png" alt="Dataset slide"><figcaption>03 / 07</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/paper2slides-04.png" alt="Workflow slide"><figcaption>04 / 07</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/paper2slides-05.png" alt="Model design slide"><figcaption>05 / 07</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/paper2slides-06.png" alt="Result chart slide"><figcaption>06 / 07</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/paper2slides-07.png" alt="Interpretation slide"><figcaption>07 / 07</figcaption></figure>
+                </div></div>
+                <div class="carousel-controls"><button type="button" data-prev aria-label="Previous slide">←</button><button type="button" data-next aria-label="Next slide">→</button><span class="carousel-count" data-counter>01 / 07</span></div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-head"><span class="project-index">Research workflow</span><span class="project-type">Manus / product insights</span></div>
+              <h3>Product User<br>Feedback Analysis</h3>
+              <p class="project-copy">A cross-platform user-feedback workflow built around Looki. It turns scattered reviews into product decisions through deduplication, human-guided clustering, KTW synthesis and representative-comment selection. The output is an actionable view of user needs, strengths and friction points—not a raw sentiment dashboard.</p>
+              <div class="project-tags"><span>User feedback</span><span>Prompt design</span><span>Human in the loop</span><span>Product insights</span></div>
+              <div class="carousel looki-carousel" data-carousel aria-label="Looki sentiment-analysis evidence">
+                <div class="carousel-viewport"><div class="carousel-track">
+                  <figure class="carousel-slide"><img src="assets/design-source/looki-summary-01.png" alt="Looki sentiment-analysis summary"><figcaption>01 / 05</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/looki-summary-02.png" alt="Looki strengths and issues summary"><figcaption>02 / 05</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/looki-cluster-cn.png" alt="Chinese first-level word-frequency cluster table"><figcaption>03 / 05</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/looki-cluster-en.png" alt="English first-level word-frequency cluster table"><figcaption>04 / 05</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/looki-notes.png" alt="Looki analysis notes"><figcaption>05 / 05</figcaption></figure>
+                </div></div>
+                <div class="carousel-controls"><button type="button" data-prev aria-label="Previous analysis page">←</button><button type="button" data-next aria-label="Next analysis page">→</button><span class="carousel-count" data-counter>01 / 05</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section-night experience">
+      <div class="wrap">
+        <div class="section-top">
+          <span class="section-id">Experience</span>
+          <div>
+            <h2>Past work,<br>future taste.</h2>
+            <p>My experience sits at the intersection of investment research, product diligence, data and communication. I care about the quality of the question as much as the final deck or memo.</p>
+          </div>
+        </div>
+
+        <div class="experience-map" aria-label="Career constellation">
+          <svg class="star-lines" viewBox="0 0 1000 650" preserveAspectRatio="none" aria-hidden="true"><path d="M115 118 C330 100, 500 205, 770 205 S680 410, 370 535 S160 455, 165 355" /><path d="M165 355 C390 345, 600 310, 770 205" /></svg>
+          <article class="star-node genesis"><h3>Genesis Capital</h3><span class="period">Feb 2026 - Jun 2026</span><p class="role">AI &amp; Consumer Team Intern</p><p class="desc">Product and regulatory research, cross-platform sentiment analysis, business-data analysis, IC memo drafting and management-interview synthesis.</p></article>
+          <article class="star-node jinding"><h3>Jinding Capital</h3><span class="period">Aug 2025 - Dec 2025</span><p class="role">Investment Center, AI Track Intern</p><p class="desc">Mapped DPU and exoskeleton-robotics landscapes, built theses and diligence reports, and supported investment decisions.</p></article>
+          <article class="star-node bcg"><h3>Boston Consulting Group</h3><span class="period">Jun 2025 - Sep 2025</span><p class="role">AI Infra &amp; Data Services Strategy Case Intern</p><p class="desc">Tracked AI cloud and industrial-model trends; researched data services; built market-sizing and project-summary views.</p></article>
+          <article class="star-node shenwan"><h3>Shenwan Hongyuan</h3><span class="period">Mar 2025 - Jun 2025</span><p class="role">Light Industry Team Intern</p><p class="desc">Authored research on Sanrio and 52TOYS, tracked consumer companies, and developed investor-roadshow materials.</p></article>
+        </div>
+
+        <div class="education"><span class="kicker">Education</span><div><b>Shanghai Jiao Tong University</b><br><span>ACEM · B.A. in Accounting, Minor in Big Data · Sep 2024 - Jun 2028</span></div><span>GPA 3.75 · Ranked 1/58</span></div>
+      </div>
+    </section>
+
+    <section id="life" class="section-night life">
+      <div class="wrap">
+        <div class="section-top">
+          <span class="section-id">Life</span>
+          <div>
+            <h2>Other signals<br>of life.</h2>
+            <p>I want a personal site to show more than professional polish. These are the things that keep my taste alive: performing with a band, caring about a room’s energy, and being unreasonably invested in a well-played team fight.</p>
+          </div>
+        </div>
+
+        <div class="life-grid">
+          <article class="life-card">
+            <h3>Amanita</h3>
+            <p>Founded in 2024, Amanita is my band and I’m the vocalist. We cover <strong>Kinoko Teikoku (きのこ帝国)</strong>, and have performed at Soul Rocker in 2024 and 2025, Huajiao Night in 2025, and more in 2026.</p>
+            <div class="band-stack">
+              <img src="assets/design-source/amanita-01.jpeg" alt="Amanita band performing with audience">
+              <img src="assets/design-source/amanita-02.jpeg" alt="Amanita band group photo after a performance">
+              <img src="assets/design-source/amanita-03.jpeg" alt="Amanita band onstage group photo">
+            </div>
+          </article>
+
+          <article class="life-card">
+            <h3>Summoner</h3>
+            <p>An EUW player, Seraphine main, and enthusiastic esports watcher. League is less a static hobby and more a living social system: balance, meta, community, spectacle and an absurdly specific shared language.</p>
+            <div class="lol-stack">
+              <img src="assets/design-source/lol-portrait-rotated.jpeg" alt="Priscilla wearing a Samsung esports jacket">
+              <img src="assets/design-source/lol-arena.jpeg" alt="League of Legends arena audience view">
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-main"><h2>Thanks for<br>stopping <em>by.</em></h2><button class="footer-action" data-copy-email type="button">Copy ziya_sun@sjtu.edu.cn</button></div>
+      <div class="footer-bottom footer-note"><span>Priscilla Sun · Shanghai / 2026</span><span>Ocean photography: <a href="https://unsplash.com/photos/blue-ocean-under-blue-sky-during-daytime-h0ffUWgaE3I" target="_blank" rel="noreferrer">Markos Mant / Unsplash</a></span></div>
+    </div>
+  </footer>
+
+  <script>
+    const email = 'ziya_sun@sjtu.edu.cn';
+    document.querySelectorAll('[data-copy-email]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(email);
+          const original = button.textContent;
+          button.dataset.copied = 'true';
+          button.textContent = 'Email copied';
+          window.setTimeout(() => { button.textContent = original; button.dataset.copied = 'false'; }, 1800);
+        } catch { window.location.href = `mailto:${email}`; }
+      });
+    });
+
+    document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+      const track = carousel.querySelector('.carousel-track');
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const counter = carousel.querySelector('[data-counter]');
+      let index = 0;
+      const render = () => {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+      };
+      carousel.querySelector('[data-prev]').addEventListener('click', () => { index = (index - 1 + slides.length) % slides.length; render(); });
+      carousel.querySelector('[data-next]').addEventListener('click', () => { index = (index + 1) % slides.length; render(); });
+    });
+  </script>
+</body>
+</html>
