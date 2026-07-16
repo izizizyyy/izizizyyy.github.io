@@ -83,9 +83,15 @@
     .memory { grid-column: 1 / -1; padding: 26px 0 66px; }
     .memory-row { display: grid; grid-template-columns: .8fr 1.2fr; gap: 42px; align-items: center; padding-top: 24px; border-top: 1px solid var(--line); }
     .memory h3, .project-card h3, .life-card h3 { margin: 0; font-family: var(--serif); font-size: clamp(42px, 4.6vw, 68px); font-weight: 400; line-height: .9; letter-spacing: -.065em; }
-    .memory p { margin: 18px 0 0; max-width: 420px; font-size: 16px; line-height: 1.5; }
-    .memory-visual { overflow: hidden; padding: 10px; background: #e5e1f2; border: 1px solid var(--line); box-shadow: 0 18px 42px rgba(5,15,38,.16); }
-    .memory-visual img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top center; }
+    .memory p { margin: 18px 0 0; max-width: 440px; font-size: 16px; line-height: 1.5; }
+    .sourcing-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
+    .sourcing-links a { padding: 9px 11px; border: 1px solid var(--line); color: var(--ink); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
+    .sourcing-links a:hover { color: #fff; border-color: var(--wine); background: var(--wine); }
+    .sourcing-carousel { min-width: 0; }
+    .sourcing-carousel .carousel { margin-top: 0; padding-top: 0; }
+    .sourcing-carousel .carousel-viewport { aspect-ratio: 1.4 / 1; border: 1px solid var(--line); box-shadow: 0 18px 42px rgba(5,15,38,.16); }
+    .sourcing-carousel .carousel-slide img { object-fit: cover; object-position: left top; }
+    .sourcing-caption { margin: 9px 0 0; color: var(--muted); font-size: 11px; line-height: 1.4; }
 
     .works { grid-column: 1 / -1; padding-bottom: 76px; }
     .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
@@ -243,12 +249,25 @@
         <article class="memory">
           <div class="memory-row">
             <div>
-              <span class="kicker">Product demo / in development</span>
-              <h3>Memory Palace</h3>
-              <p>A working program for turning scattered memories, conversations and artifacts into a navigable personal context layer. It organizes thoughts spatially so they can be revisited, connected and used when a new question appears.</p>
+              <span class="kicker">VC workflow / live sheet</span>
+              <h3>Sourcing<br>Automations</h3>
+              <p>A sourcing workflow for finding early AI projects before they become obvious financing headlines. It scans first-party launches, app stores, developer releases, social media, funding news and preprints, then turns each signal into an evidence-linked investment record. It runs automatically every week and continuously updates the latest projects and source signals in a live Feishu sheet.</p>
+              <div class="sourcing-links">
+                <a href="https://lcna6wr85xkm.feishu.cn/base/HuDYbnCymamkvPsWpBicpLQJnHh" target="_blank" rel="noreferrer">Request data access ↗</a>
+              </div>
             </div>
-            <div class="memory-visual">
-              <img src="assets/design-source/memory-palace-demo-web.jpg" alt="Memory Palace program interface showing a navigable palace of connected thoughts">
+            <div class="sourcing-carousel">
+              <div class="carousel" data-carousel aria-label="Selected content from the AI VC sourcing live sheet">
+                <div class="carousel-viewport"><div class="carousel-track">
+                  <figure class="carousel-slide"><img src="assets/design-source/ai-vc-sourcing-sheet.png" alt="AI projects grouped by project type and investment taxonomy"><figcaption>01 / 05</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/ai-vc-sourcing-sheet-02.png" alt="Project descriptions, founder backgrounds and institutional origins"><figcaption>02 / 05</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/ai-vc-sourcing-sheet-03.png" alt="Project geography, founding dates, financing rounds and amounts"><figcaption>03 / 05</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/ai-vc-sourcing-sheet-04.png" alt="Investors, signal dates and project website links"><figcaption>04 / 05</figcaption></figure>
+                  <figure class="carousel-slide"><img src="assets/design-source/ai-vc-sourcing-sheet-05.png" alt="GitHub, Hugging Face, core research and investment scores"><figcaption>05 / 05</figcaption></figure>
+                </div></div>
+                <div class="carousel-controls"><button type="button" data-prev aria-label="Previous sourcing sheet page">←</button><button type="button" data-next aria-label="Next sourcing sheet page">→</button><span class="carousel-count" data-counter>01 / 05</span></div>
+              </div>
+              <p class="sourcing-caption">Selected content overview from the live sheet.</p>
             </div>
           </div>
         </article>
