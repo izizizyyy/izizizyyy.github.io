@@ -83,24 +83,9 @@
     .memory { grid-column: 1 / -1; padding: 26px 0 66px; }
     .memory-row { display: grid; grid-template-columns: .8fr 1.2fr; gap: 42px; align-items: center; padding-top: 24px; border-top: 1px solid var(--line); }
     .memory h3, .project-card h3, .life-card h3 { margin: 0; font-family: var(--serif); font-size: clamp(42px, 4.6vw, 68px); font-weight: 400; line-height: .9; letter-spacing: -.065em; }
-    .memory p { margin: 18px 0 0; max-width: 440px; font-size: 16px; line-height: 1.5; }
-    .sourcing-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
-    .sourcing-links a { padding: 9px 11px; border: 1px solid var(--line); color: var(--ink); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
-    .sourcing-links a:hover { color: #fff; border-color: var(--wine); background: var(--wine); }
-    .sourcing-visual { min-height: 430px; padding: 18px; color: #eef0ff; border: 1px solid rgba(195,201,255,.35); background: linear-gradient(145deg, #10152d, #17204a 58%, #242867); box-shadow: 0 18px 42px rgba(5,15,38,.22); }
-    .sourcing-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(212,217,255,.22); }
-    .sourcing-toolbar b { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: -.04em; }
-    .sourcing-toolbar span { color: #bfc6ff; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .sourcing-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 14px 0; }
-    .sourcing-metric { padding: 12px; border: 1px solid rgba(212,217,255,.18); background: rgba(255,255,255,.05); }
-    .sourcing-metric strong { display: block; color: #c8c9ff; font-family: var(--serif); font-size: 29px; font-weight: 400; line-height: 1; }
-    .sourcing-metric small { display: block; margin-top: 7px; color: #b9bfdc; font-size: 9px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
-    .sourcing-table { display: grid; gap: 7px; }
-    .sourcing-entry { display: grid; grid-template-columns: minmax(118px,.75fr) 1.15fr auto; gap: 12px; align-items: center; padding: 11px 12px; background: rgba(242,243,255,.94); color: #15182a; }
-    .sourcing-entry b { font-size: 12px; }
-    .sourcing-entry span { color: #555a74; font-size: 10px; line-height: 1.35; }
-    .sourcing-entry em { color: #5658b4; font-size: 10px; font-style: normal; font-weight: 800; white-space: nowrap; }
-    .sourcing-foot { display: flex; justify-content: space-between; gap: 12px; margin-top: 13px; color: #aeb6dc; font-size: 9px; letter-spacing: .04em; }
+    .memory p { margin: 18px 0 0; max-width: 420px; font-size: 16px; line-height: 1.5; }
+    .memory-visual { overflow: hidden; padding: 10px; background: #e5e1f2; border: 1px solid var(--line); box-shadow: 0 18px 42px rgba(5,15,38,.16); }
+    .memory-visual img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top center; }
 
     .works { grid-column: 1 / -1; padding-bottom: 76px; }
     .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
@@ -181,8 +166,6 @@
       .section-top > div { padding: 14px 0 30px; }
       .section-id { position: static; display: block; padding: 28px 0 0; font-size: 30px; }
       .profile-layout, .memory-row { grid-template-columns: 1fr; gap: 18px; }
-      .sourcing-metrics { grid-template-columns: 1fr; }
-      .sourcing-entry { grid-template-columns: 1fr; gap: 4px; }
       .profile-image { min-height: 350px; }
       .profile-image img { max-height: 420px; }
       .projects-grid, .life-grid { grid-template-columns: 1fr; }
@@ -260,31 +243,12 @@
         <article class="memory">
           <div class="memory-row">
             <div>
-              <span class="kicker">AI investing workflow / live system</span>
-              <h3>AI VC<br>Sourcing</h3>
-              <p>A China-first sourcing system for finding early AI software, hardware and research before they become obvious financing headlines. It scans first-party launches, app stores, developer releases, Reddit, funding news and preprints, then turns each signal into an evidence-linked investment record.</p>
-              <div class="sourcing-links">
-                <a href="https://lcna6wr85xkm.feishu.cn/base/HuDYbnCymamkvPsWpBicpLQJnHh" target="_blank" rel="noreferrer">Request data access ↗</a>
-                <a href="#experience">Investment perspective</a>
-              </div>
+              <span class="kicker">Product demo / in development</span>
+              <h3>Memory Palace</h3>
+              <p>A working program for turning scattered memories, conversations and artifacts into a navigable personal context layer. It organizes thoughts spatially so they can be revisited, connected and used when a new question appears.</p>
             </div>
-            <div class="sourcing-visual" role="img" aria-label="AI VC sourcing dashboard showing project and signal examples">
-              <div class="sourcing-toolbar">
-                <b>China-first AI radar</b>
-                <span>Weekly · evidence linked</span>
-              </div>
-              <div class="sourcing-metrics">
-                <div class="sourcing-metric"><strong>18</strong><small>Projects tracked</small></div>
-                <div class="sourcing-metric"><strong>20</strong><small>Source signals</small></div>
-                <div class="sourcing-metric"><strong>13</strong><small>China priority</small></div>
-              </div>
-              <div class="sourcing-table">
-                <div class="sourcing-entry"><b>INMO Magic AI Glasses</b><span>AI hardware · Shenzhen · launch + App Store + user evidence</span><em>84.2</em></div>
-                <div class="sourcing-entry"><b>AionClaw</b><span>Consumer Agent · Hangzhou · cloud execution and skill market</span><em>71.3</em></div>
-                <div class="sourcing-entry"><b>且叙</b><span>AI-native app · Shanghai · emotional journaling and reflection</span><em>73.0</em></div>
-                <div class="sourcing-entry"><b>GigaWorld-Policy-0.5</b><span>Physical AI · China · preprint, model and code release</span><em>Research</em></div>
-              </div>
-              <div class="sourcing-foot"><span>Sources: company posts · App Store · Reddit · GitHub · financing · preprints</span><span>Built by Priscilla Sun</span></div>
+            <div class="memory-visual">
+              <img src="assets/design-source/memory-palace-demo-web.jpg" alt="Memory Palace program interface showing a navigable palace of connected thoughts">
             </div>
           </div>
         </article>
