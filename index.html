@@ -77,8 +77,9 @@
     .metric { min-height: 108px; padding: 16px; background: var(--cream); }
     .metric b { display: block; color: var(--wine); font-family: var(--serif); font-size: 32px; font-weight: 400; letter-spacing: -.05em; line-height: 1; }
     .metric span { display: block; margin-top: 8px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
-    .profile-image { min-height: 490px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #fff; border: 1px solid var(--line); }
+    .profile-image { min-height: 0; margin: 0; padding: 18px; display: flex; flex-direction: column; gap: 18px; align-items: center; justify-content: center; overflow: hidden; background: #fff; border: 1px solid var(--line); }
     .profile-image img { max-height: 560px; object-fit: contain; object-position: center top; }
+    .profile-snapshot { color: var(--muted); font-size: 11px; line-height: 1.4; text-align: center; }
 
     .memory { grid-column: 1 / -1; padding: 26px 0 66px; }
     .memory-row { display: grid; grid-template-columns: .8fr 1.2fr; gap: 42px; align-items: center; padding-top: 24px; border-top: 1px solid var(--line); }
@@ -92,6 +93,8 @@
     .sourcing-carousel .carousel-viewport { aspect-ratio: 1.4 / 1; border: 1px solid var(--line); box-shadow: 0 18px 42px rgba(5,15,38,.16); }
     .sourcing-carousel .carousel-slide img { object-fit: cover; object-position: left top; }
     .sourcing-caption { margin: 9px 0 0; color: var(--muted); font-size: 11px; line-height: 1.4; }
+    .pet-farm-visual { margin: 0; }
+    .pet-farm-visual img { border: 1px solid var(--line); }
 
     .works { grid-column: 1 / -1; padding-bottom: 76px; }
     .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
@@ -117,7 +120,7 @@
     .carousel-controls button:hover { color: var(--wine); border-color: var(--wine); }
     .carousel-count { margin-left: 4px; color: var(--muted); }
 
-    .experience-map { grid-column: 1 / -1; position: relative; min-height: 650px; overflow: hidden; border: 1px solid rgba(205, 213, 255, .28); background-color: rgba(5, 9, 24, .38); background-image: radial-gradient(circle at 18% 22%, rgba(206,215,255,.9) 0 1px, transparent 1.8px), radial-gradient(circle at 72% 14%, rgba(166,175,255,.9) 0 1.5px, transparent 2px), radial-gradient(circle at 88% 68%, rgba(226,230,255,.85) 0 1px, transparent 1.7px), radial-gradient(circle at 38% 74%, rgba(181,190,255,.85) 0 1.2px, transparent 1.8px), radial-gradient(circle at 56% 43%, rgba(255,255,255,.75) 0 1px, transparent 1.6px); background-size: 174px 188px, 251px 209px, 213px 231px, 281px 191px, 197px 257px; }
+    .experience-map { grid-column: 1 / -1; position: relative; min-height: 1000px; overflow: hidden; border: 1px solid rgba(205, 213, 255, .28); background-color: rgba(5, 9, 24, .38); background-image: radial-gradient(circle at 18% 22%, rgba(206,215,255,.9) 0 1px, transparent 1.8px), radial-gradient(circle at 72% 14%, rgba(166,175,255,.9) 0 1.5px, transparent 2px), radial-gradient(circle at 88% 68%, rgba(226,230,255,.85) 0 1px, transparent 1.7px), radial-gradient(circle at 38% 74%, rgba(181,190,255,.85) 0 1.2px, transparent 1.8px), radial-gradient(circle at 56% 43%, rgba(255,255,255,.75) 0 1px, transparent 1.6px); background-size: 174px 188px, 251px 209px, 213px 231px, 281px 191px, 197px 257px; }
     .star-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
     .star-lines path { fill: none; stroke: rgba(175, 184, 255, .47); stroke-width: 1.25; stroke-dasharray: 5 8; }
     .star-node { position: absolute; width: min(39%, 440px); padding: 18px 18px 16px; border: 1px solid rgba(198, 207, 255, .38); background: rgba(14, 18, 43, .64); box-shadow: 0 14px 34px rgba(0,0,0,.18); backdrop-filter: blur(10px); }
@@ -126,10 +129,11 @@
     .star-node .period { display: block; margin-top: 9px; color: #c3c9ff; }
     .star-node .role { margin: 9px 0 0; color: #d9dcef; font-size: 11px; }
     .star-node .desc { margin: 10px 0 0; color: var(--night-muted); font-size: 13px; line-height: 1.45; }
-    .genesis { top: 9%; left: 7%; }
-    .jinding { top: 25%; right: 7%; }
-    .bcg { right: 7%; bottom: 8%; left: auto; }
-    .shenwan { top: 54%; left: 7%; }
+    .xiaohongshu { top: 5%; left: 7%; }
+    .genesis { top: 25%; right: 7%; }
+    .jinding { top: 45%; left: 7%; }
+    .bcg { top: 64%; right: 7%; }
+    .shenwan { bottom: 5%; left: 7%; }
     .education { grid-column: 1 / -1; margin-top: 28px; padding: 22px; display: grid; grid-template-columns: .7fr 1.55fr auto; gap: 20px; align-items: baseline; background: rgba(166, 175, 255, .92); color: var(--ink); }
     .education .kicker { color: var(--night); }
     .education b { font-size: 19px; letter-spacing: -.03em; }
@@ -214,7 +218,7 @@
       <div class="wrap hero-copy">
         <div class="hero-text">
           <h1>Hi! Glad<br>you’re <em>here.</em><span class="inline-hello" role="img" aria-label="Waving hello">👋</span></h1>
-          <p class="hero-intro">I’m <strong>Priscilla Sun</strong>, a curious sophomore at Shanghai Jiao Tong University. I explore how AI becomes a product, a workflow, and eventually a new way to think. I’m looking for paths in <strong>AI product</strong> and <strong>early-stage investing</strong>.</p>
+          <p class="hero-intro">I’m <strong>Priscilla Sun</strong>, an undergraduate at Shanghai Jiao Tong University. I explore <strong>AI products</strong>, <strong>multi-agent collaboration</strong>, and <strong>early-stage technology investing</strong> through product research, user interviews, and working prototypes.</p>
         </div>
         <figure class="hero-photo"><img src="assets/design-source/priscilla-bund-web.jpg" alt="Priscilla Sun by the Huangpu River in Shanghai"></figure>
       </div>
@@ -236,13 +240,17 @@
               <h3>Codex is my<br>workbench.</h3>
               <p>The point of a profile is not a vanity metric. It shows a sustained practice: convert recurring tasks into skills, keep context in artifacts, and validate the final output instead of stopping at a plausible answer.</p>
               <div class="profile-metrics" aria-label="Codex profile metrics">
-                <div class="metric"><b>493.2m</b><span>Lifetime tokens</span></div>
-                <div class="metric"><b>36</b><span>Skills explored</span></div>
-                <div class="metric"><b>219</b><span>Total skills used</span></div>
-                <div class="metric"><b>182</b><span>Total tasks</span></div>
+                <div class="metric"><b>1.5bn</b><span>Lifetime tokens</span></div>
+                <div class="metric"><b>122.9m</b><span>Peak tokens</span></div>
+                <div class="metric"><b>10h 37m</b><span>Longest task</span></div>
+                <div class="metric"><b>13 days</b><span>Longest streak</span></div>
               </div>
             </div>
-            <div class="profile-image"><img src="assets/design-source/codex-profile-2026-07.png" alt="Priscilla Sun's Codex profile showing activity and skill use"></div>
+            <figure class="profile-image">
+              <img src="assets/design-source/codex-profile-2026-10.png" alt="Pris's Codex profile showing 1.5 billion lifetime tokens, 122.9 million peak tokens, a longest task of 10 hours 37 minutes, and a longest streak of 13 days">
+              <img src="assets/design-source/codex-token-activity-2026-10.png" alt="Codex daily token activity heatmap showing activity from June through early October">
+              <figcaption class="profile-snapshot">Snapshot · October 7, 2026</figcaption>
+            </figure>
           </div>
         </article>
 
@@ -269,6 +277,21 @@
               </div>
               <p class="sourcing-caption">Selected content overview from the live sheet.</p>
             </div>
+          </div>
+        </article>
+
+        <article class="memory" id="pet-farm">
+          <div class="memory-row">
+            <div>
+              <span class="kicker">Agent Space / collaboration prototype</span>
+              <h3>Pet Farm</h3>
+              <p>A collaboration prototype for small teams using Codex and Claude Code on their own computers. It connects agent activity to shared projects and supports work updates, artifacts, handoffs, and named messages. A pixel-art Farm makes member and session activity visible while keeping full conversations on local devices.</p>
+              <p>Private-network prototype; broader desktop compatibility remains experimental.</p>
+            </div>
+            <figure class="pet-farm-visual">
+              <img src="assets/design-source/pet-farm-demo.png" alt="Pet Farm prototype showing three members, their agent companions, and session boards with sample data" loading="lazy">
+              <figcaption class="sourcing-caption">Prototype interface · Sample data</figcaption>
+            </figure>
           </div>
         </article>
 
@@ -325,14 +348,15 @@
         </div>
 
         <div class="experience-map" aria-label="Career constellation">
-          <svg class="star-lines" viewBox="0 0 1000 650" preserveAspectRatio="none" aria-hidden="true"><path d="M115 118 C330 100, 500 205, 770 205 S680 410, 370 535 S160 455, 165 355" /><path d="M165 355 C390 345, 600 310, 770 205" /></svg>
-          <article class="star-node genesis"><h3>Genesis Capital</h3><span class="period">Feb 2026 - Jun 2026</span><p class="role">AI &amp; Consumer Team Intern</p><p class="desc">Product and regulatory research, cross-platform sentiment analysis, business-data analysis, IC memo drafting and management-interview synthesis.</p></article>
-          <article class="star-node jinding"><h3>Jinding Capital</h3><span class="period">Aug 2025 - Dec 2025</span><p class="role">Investment Center, AI Track Intern</p><p class="desc">Mapped DPU and exoskeleton-robotics landscapes, built theses and diligence reports, and supported investment decisions.</p></article>
+          <svg class="star-lines" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><path d="M70 50 C330 60, 500 230, 930 250 S400 430, 70 450 S620 620, 930 640 S420 770, 70 790" /></svg>
+          <article class="star-node xiaohongshu"><h3>Xiaohongshu</h3><span class="period">Jul 2026 - Present</span><p class="role">Technology Investment Intern, Financial Investment Department</p><p class="desc">Mapped AI interactive content and evaluated 10+ products. Tested three agent collaboration products and interviewed six users to identify pain points and product opportunities. Researched consumer robotics and AI data businesses, assessing market size, differentiation, and commercialization risks.</p></article>
+          <article class="star-node genesis"><h3>Genesis Capital</h3><span class="period">Feb 2026 - Jun 2026</span><p class="role">AI &amp; Consumer Team Intern</p><p class="desc">Conducted commercial due diligence on AI-native wearables, AI3D foundation models, and embodied AI. Combined cross-platform user feedback, customer and expert interviews, and business-data analysis to assess product differentiation, data moats, and commercialization risks, and prepare investment committee materials.</p></article>
+          <article class="star-node jinding"><h3>Jinding Capital</h3><span class="period">Sep 2025 - Dec 2025</span><p class="role">Investment Center, AI Track Intern</p><p class="desc">Mapped DPU and exoskeleton-robotics landscapes, built theses and diligence reports, and supported investment decisions.</p></article>
           <article class="star-node bcg"><h3>Boston Consulting Group</h3><span class="period">Jun 2025 - Sep 2025</span><p class="role">AI Infra &amp; Data Services Strategy Case Intern</p><p class="desc">Tracked AI cloud and industrial-model trends; researched data services; built market-sizing and project-summary views.</p></article>
           <article class="star-node shenwan"><h3>Shenwan Hongyuan</h3><span class="period">Mar 2025 - Jun 2025</span><p class="role">Light Industry Team Intern</p><p class="desc">Authored research on Sanrio and 52TOYS, tracked consumer companies, and developed investor-roadshow materials.</p></article>
         </div>
 
-        <div class="education"><span class="kicker">Education</span><div><b>Shanghai Jiao Tong University</b><br><span>ACEM · B.A. in Accounting, Minor in Big Data · Sep 2024 - Jun 2028</span></div><span>GPA 3.8 · Ranked 2/20</span></div>
+        <div class="education"><span class="kicker">Education</span><div><b>Shanghai Jiao Tong University</b><br><span>ACEM · Bachelor of Management in Accounting, Minor in Big Data · Sep 2024 - Jun 2028 (Expected)</span></div><span>GPA 3.8 · Ranked 2/20</span></div>
       </div>
     </section>
 
